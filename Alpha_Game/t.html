@@ -1,0 +1,134 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>t</title>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/
+  font-awesome/4.7.0/css/font-awesome.min.css" 
+  integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" 
+  crossorigin="anonymous" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/solid.min.css" integrity="sha512-syLgH4TfuuvCLUFLMetIB5RPyzP+HBPhrm/7l6VOyFlvc1KtpEG0J5MtemO9QK5CUipV3Y8qwDtGlyAc5e64ZA==" crossorigin="anonymous" /> -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  
+</head>
+<body>
+  <div class="flex_css">
+    <h2 class="text_effect_one text-centre text-capitalize pt-5"> My Alphabet Game </h2> 
+    <h2 class="text_effects">ABOUT US</h2>
+  <h1> T </h1> 
+ 
+  <a href ="u.html" id="link1"> <button class="nextPage"> Next Page </button></a>
+  <a href ="s.html" id="link1"> <button class="previousPage"> Previous Page </button></a>
+  <div class="star-rating">   
+      
+     <img id="slideshow" src="images/t8.gif"/>    
+       
+  <ul class="stars">
+     <li class="star"> <i class="fa fa-star"></i></li>
+     <li class="star"> <i class="fa fa-star"></i></li>
+     <li class="star"> <i class="fa fa-star"></i></li>
+     <li class="star"> <i class="fa fa-star"></i></li>
+     <li class="star"> <i class="fa fa-star"></i></li>     
+            
+  </ul>
+  <p class="output">Rating</p>
+  <br>
+  <button class="next" onclick="nextPage()"> Next </button>
+</div>
+<script>
+  const stars = document.querySelectorAll('.star');
+  const output = document.querySelector('.output');
+
+  for(x=0;x<stars.length; x++)
+  {
+    stars[x].starValue = (x+1);
+    
+    ["click", "mouseover", "mouseout"].forEach(function(e) {
+      stars[x].addEventListener(e, showRating);
+    })
+  }
+  function showRating(e){
+    let type = e.type;
+    let starValue = this.starValue; 
+
+    if( type === 'click')
+    {
+      if(starValue >1) {
+        output.innerHTML = "You Rated: " + starValue + " Stars."
+      }
+    }   
+  
+  stars.forEach(function(elem, ind)
+  {
+    if( type === 'click')
+    {
+      if(ind< starValue)
+      {
+        elem.classList.add("orange");
+      }
+      else {
+        elem.classList.remove("orange");
+      }
+    }
+    if(type === 'mouseover')
+    {
+      if(ind< starValue)
+      {
+        elem.classList.add("yellow");
+      }
+      else {
+        elem.classList.remove("yellow");
+      }
+    }
+    if(type === 'mouseout')
+      {      
+        elem.classList.remove("yellow");
+      }
+    
+  })
+  }
+ 
+  images = [
+              {"name":"img1", "src":"images/t1.gif"},
+              {"name":"img2", "src":"images/t2.gif"},
+              {"name":"img3", "src":"images/t3.gif"},
+              {"name":"img4", "src":"images/t4.gif"},
+              {"name":"img5", "src":"images/t5.gif"},
+              {"name":"img6", "src":"images/t6.gif"},
+              {"name":"img7", "src":"images/t7.gif"},
+              {"name":"img8", "src":"images/t8.gif"},
+              {"name":"img9", "src":"images/t9.gif"},
+              {"name":"img10", "src":"images/t10.gif"},
+              {"name":"img11", "src":"images/t11.gif"},
+              {"name":"img12", "src":"images/t12.gif"},
+              {"name":"img13", "src":"images/t13.gif"},
+              {"name":"img14", "src":"images/t14.gif"},
+              {"name":"img15", "src":"images/t15.gif"},
+              {"name":"img16", "src":"images/t16.gif"},            
+             
+              
+              
+              
+                      
+           
+              ];
+imgIndex = 0;
+
+  nextPage = () => { 
+
+    document.getElementById('slideshow').src = images[imgIndex].src;    
+    if(images.length > imgIndex+1){  
+      imgIndex++;  
+    } 
+    else 
+    {
+    imgIndex = 0;
+    }
+    }
+      
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>z</title>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/
+  font-awesome/4.7.0/css/font-awesome.min.css" 
+  integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" 
+  crossorigin="anonymous" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/solid.min.css" integrity="sha512-syLgH4TfuuvCLUFLMetIB5RPyzP+HBPhrm/7l6VOyFlvc1KtpEG0J5MtemO9QK5CUipV3Y8qwDtGlyAc5e64ZA==" crossorigin="anonymous" /> -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  
+</head>
+<body>
+  <div class="flex_css">
+    <h2 class="text_effect_one text-centre text-capitalize pt-5"> My Alphabet Game </h2> 
+    <h2 class="text_effects">ABOUT US</h2>
+  <h1> Z </h1> 
+ 
+  <a href ="index.html" id="link1"> <button class="nextPage"> Next Page </button></a>
+  <a href ="y.html" id="link1"> <button class="previousPage"> Previous Page </button></a>
+  <div class="star-rating">   
+      
+     <img id="slideshow" src="images/z1.gif"/>    
+       
+  <ul class="stars">
+     <li class="star"> <i class="fa fa-star"></i></li>
+     <li class="star"> <i class="fa fa-star"></i></li>
+     <li class="star"> <i class="fa fa-star"></i></li>
+     <li class="star"> <i class="fa fa-star"></i></li>
+     <li class="star"> <i class="fa fa-star"></i></li>     
+            
+  </ul>
+  <p class="output">Rating</p>
+  <br>
+  <button class="next" onclick="nextPage()"> Next </button>
+</div>
+<script>
+  const stars = document.querySelectorAll('.star');
+  const output = document.querySelector('.output');
+
+  for(x=0;x<stars.length; x++)
+  {
+    stars[x].starValue = (x+1);
+    
+    ["click", "mouseover", "mouseout"].forEach(function(e) {
+      stars[x].addEventListener(e, showRating);
+    })
+  }
+  function showRating(e){
+    let type = e.type;
+    let starValue = this.starValue; 
+
+    if( type === 'click')
+    {
+      if(starValue >1) {
+        output.innerHTML = "You Rated: " + starValue + " Stars."
+      }
+    }   
+  
+  stars.forEach(function(elem, ind)
+  {
+    if( type === 'click')
+    {
+      if(ind< starValue)
+      {
+        elem.classList.add("orange");
+      }
+      else {
+        elem.classList.remove("orange");
+      }
+    }
+    if(type === 'mouseover')
+    {
+      if(ind< starValue)
+      {
+        elem.classList.add("yellow");
+      }
+      else {
+        elem.classList.remove("yellow");
+      }
+    }
+    if(type === 'mouseout')
+      {      
+        elem.classList.remove("yellow");
+      }
+    
+  })
+  }
+ 
+  images = [
+              {"name":"img1", "src":"images/z1.gif"},
+              {"name":"img2", "src":"images/z2.gif"},
+              {"name":"img3", "src":"images/z3.gif"},
+              {"name":"img3", "src":"images/z4.gif"},
+              
+              
+           
+              ];
+imgIndex = 0;
+
+  nextPage = () => { 
+
+    document.getElementById('slideshow').src = images[imgIndex].src;    
+    if(images.length > imgIndex+1){  
+      imgIndex++;  
+    } 
+    else 
+    {
+    imgIndex = 0;
+    }
+    }
+      
+</script>
+</body>
+</html>

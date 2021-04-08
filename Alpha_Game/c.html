@@ -1,0 +1,153 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>c</title>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/
+  font-awesome/4.7.0/css/font-awesome.min.css" 
+  integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" 
+  crossorigin="anonymous" /> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/solid.min.css" integrity="sha512-syLgH4TfuuvCLUFLMetIB5RPyzP+HBPhrm/7l6VOyFlvc1KtpEG0J5MtemO9QK5CUipV3Y8qwDtGlyAc5e64ZA==" crossorigin="anonymous" /> -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  
+</head>
+<body>
+  <div class="flex_css">
+    <h2 class="text_effect_one text-centre text-capitalize pt-5"> My Alphabet Game </h2> 
+    <h2 class="text_effects">ABOUT US</h2>
+  <h1> C </h1> 
+ 
+  <a href ="d.html" id="link1"> <button class="nextPage"> Next Page </button></a>
+  <a href ="b.html" id="link1"> <button class="previousPage"> Previous Page </button></a>
+  <div class="star-rating">   
+      
+     <img id="slideshow" src="images/c5.gif"/>    
+       
+  <ul class="stars">
+     <li class="star"> <i class="fa fa-star"></i></li>
+     <li class="star"> <i class="fa fa-star"></i></li>
+     <li class="star"> <i class="fa fa-star"></i></li>
+     <li class="star"> <i class="fa fa-star"></i></li>
+     <li class="star"> <i class="fa fa-star"></i></li>     
+            
+  </ul>
+  <p class="output">Rating</p>
+  <br>
+  <button class="next" onclick="nextPage()"> Next </button>
+</div>
+<script>
+  const stars = document.querySelectorAll('.star');
+  const output = document.querySelector('.output');
+
+  for(x=0;x<stars.length; x++)
+  {
+    stars[x].starValue = (x+1);
+    
+    ["click", "mouseover", "mouseout"].forEach(function(e) {
+      stars[x].addEventListener(e, showRating);
+    })
+  }
+  function showRating(e){
+    let type = e.type;
+    let starValue = this.starValue; 
+
+    if( type === 'click')
+    {
+      if(starValue >1) {
+        output.innerHTML = "You Rated: " + starValue + " Stars."
+      }
+    }   
+  
+  stars.forEach(function(elem, ind)
+  {
+    if( type === 'click')
+    {
+      if(ind< starValue)
+      {
+        elem.classList.add("orange");
+      }
+      else {
+        elem.classList.remove("orange");
+      }
+    }
+    if(type === 'mouseover')
+    {
+      if(ind< starValue)
+      {
+        elem.classList.add("yellow");
+      }
+      else {
+        elem.classList.remove("yellow");
+      }
+    }
+    if(type === 'mouseout')
+      {      
+        elem.classList.remove("yellow");
+      }
+    
+  })
+  }
+ 
+  images = [
+              {"name":"img1", "src":"images/c1.gif"},
+              {"name":"img2", "src":"images/c2.gif"},
+              {"name":"img3", "src":"images/c3.gif"},
+              {"name":"img4", "src":"images/c4.gif"},
+              {"name":"img5", "src":"images/c5.gif"},
+              {"name":"img6", "src":"images/c6.gif"},
+              {"name":"img7", "src":"images/c7.gif"},
+              {"name":"img8", "src":"images/c8.gif"},
+              {"name":"img9", "src":"images/c9.gif"},
+              {"name":"img10", "src":"images/c10.gif"},
+              {"name":"img11", "src":"images/c11.gif"},
+              {"name":"img12", "src":"images/c12.gif"},
+              {"name":"img13", "src":"images/c13.gif"},
+              {"name":"img14", "src":"images/c14.gif"},
+              {"name":"img15", "src":"images/c15.gif"},
+              {"name":"img16", "src":"images/c16.gif"},
+              {"name":"img17", "src":"images/c17.gif"},
+              {"name":"img18", "src":"images/c18.gif"},
+              {"name":"img19", "src":"images/c19.gif"},
+              {"name":"img20", "src":"images/c20.gif"},
+              {"name":"img21", "src":"images/c21.gif"},
+              {"name":"img22", "src":"images/c22.gif"},
+              {"name":"img23", "src":"images/c23.gif"},
+              {"name":"img24", "src":"images/c24.gif"},
+              {"name":"img25", "src":"images/c25.gif"},
+              {"name":"img26", "src":"images/c26.gif"},
+              {"name":"img27", "src":"images/c27.gif"},
+              {"name":"img28", "src":"images/c28.gif"},
+              {"name":"img29", "src":"images/c29.gif"},
+              {"name":"img30", "src":"images/c30.gif"},
+              {"name":"img31", "src":"images/c31.gif"},
+              {"name":"img32", "src":"images/c32.gif"},
+              {"name":"img33", "src":"images/c33.gif"},
+              {"name":"img34", "src":"images/c34.gif"},
+              {"name":"img35", "src":"images/c35.gif"},
+              {"name":"img36", "src":"images/c36.gif"},
+              {"name":"img37", "src":"images/c37.gif"},
+              {"name":"img38", "src":"images/c38.gif"},
+              {"name":"img39", "src":"images/c39.gif"},
+           
+              
+            ];
+imgIndex = 0;
+
+  nextPage = () => { 
+
+    document.getElementById('slideshow').src = images[imgIndex].src;    
+    if(images.length > imgIndex+1){  
+      imgIndex++;  
+    } 
+    else 
+    {
+    imgIndex = 0;
+    }
+    }
+      
+</script>
+</body>
+</html>
